@@ -7,15 +7,21 @@ namespace MyCrossPlatformApp.Calculator
 {
     public partial class CalculatorWindow : Window
     {
-        private readonly CalculatorLogic _calculator;
+        private CalculatorLogic _calculator;
 
         public CalculatorWindow()
         {
             InitializeComponent();
-            _calculator = new CalculatorLogic();
+            InitializeCalculator();
         }
 
-        private void OnAddClick(object sender, RoutedEventArgs e)
+        private void InitializeCalculator()
+        {
+            _calculator = new CalculatorLogic();
+        
+        }
+
+    private void OnAddClick(object sender, RoutedEventArgs e)
         {
             double a = double.Parse(InputA.Text);
             double b = double.Parse(InputB.Text);
