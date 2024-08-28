@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using MyCrossPlatformApp.Calculator;  // Korrekte Referenzierung des Namespaces
+using MyCrossPlatformApp.Calculator; 
 
 namespace MyCrossPlatformApp
 {
