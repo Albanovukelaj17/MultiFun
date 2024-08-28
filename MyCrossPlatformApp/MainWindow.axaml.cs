@@ -15,6 +15,12 @@ namespace MyCrossPlatformApp
         {
             var calculatorWindow = new CalculatorWindow();
             calculatorWindow.Show();
+            
+        }
+        private void RPSGame_Click(object sender, RoutedEventArgs e)
+        {
+            var rpsWindow = new RockPaperScissors.RPSWindow();
+            rpsWindow.Show();
         }
     }
 }

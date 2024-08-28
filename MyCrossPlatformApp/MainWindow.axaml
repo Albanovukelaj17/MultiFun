@@ -11,5 +11,8 @@
         <Button Name="Calculator" Content="Calculator" Click="Calculator_Click"
                 Background="#555555" Foreground="White" Padding="5" Width="150"
                 HorizontalAlignment="Center" FontSize="14" CornerRadius="5"/>
+        <Button Name="RPSGame" Content="Rock, Paper, Scissors" Click="RPSGame_Click"
+                Background="#555555" Foreground="White" Padding="5" Width="150"
+                HorizontalAlignment="Center" FontSize="14" CornerRadius="5"/>
     </StackPanel>
 </Window>

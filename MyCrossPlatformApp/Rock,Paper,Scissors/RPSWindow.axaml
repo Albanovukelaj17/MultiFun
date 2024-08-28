@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="MyCrossPlatformApp.RockPaperScissors.RPSWindow"
+        Title="Rock, Paper, Scissors"
+        Width="400" Height="300"
+        Background="#333333">
+    
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+        <TextBlock Text="Choose: Rock, Paper, or Scissors" Foreground="#CCCCCC" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+        
+        <Button Name="RockButton" Content="Rock" Click="OnRockClick"
+                Background="#555555" Foreground="White" Padding="5" Width="150"
+                HorizontalAlignment="Center" FontSize="14" CornerRadius="5"/>
+        <Button Name="PaperButton" Content="Paper" Click="OnPaperClick"
+                Background="#555555" Foreground="White" Padding="5" Width="150"
+                HorizontalAlignment="Center" FontSize="14" CornerRadius="5"/>
+        <Button Name="ScissorsButton" Content="Scissors" Click="OnScissorsClick"
+                Background="#555555" Foreground="White" Padding="5" Width="150"
+                HorizontalAlignment="Center" FontSize="14" CornerRadius="5"/>
+        
+        <TextBlock x:Name="ResultTextBlock" Foreground="#CCCCCC" FontSize="14" HorizontalAlignment="Center"/>
+
+         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
+            <TextBlock x:Name="WinsTextBlock" Text="Wins: 0" Foreground="#CCCCCC" FontSize="14"/>
+            <TextBlock x:Name="LossesTextBlock" Text="Losses: 0" Foreground="#CCCCCC" FontSize="14"/>
+            <Button Name=" Reset" Content="Reset" Click= "OnReset"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
