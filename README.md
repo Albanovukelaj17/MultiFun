@@ -23,8 +23,8 @@ This cross-platform application, built using C# and Avalonia, is designed to pro
  
 - **Tic-Tac-Toe (1 vs 1)**:
   - Two players can compete against each other in a classic Tic-Tac-Toe game.
-  - Players take turns marking the grid, and the game immediately displays the winner or a tie if applicable.
-  - The game is reset after each round, allowing continuous play.
+  - Players take turns marking the grid, and the game immediately displays the winner or a tie if applicable.( soon)
+  - The game is reset after each round, allowing continuous play.( soon)
 
 ### Future Development
 The application is designed with scalability in mind, allowing for easy addition of new mini-games and utilities. Future updates may include games like Tic-Tac-Toe, a memory game, or more complex utilities.
