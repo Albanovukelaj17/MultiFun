@@ -22,5 +22,10 @@ namespace MyCrossPlatformApp
             var rpsWindow = new RockPaperScissors.RPSWindow();
             rpsWindow.Show();
         }
-    }
+        private void TicTacToeGame_Click(object sender, RoutedEventArgs e)
+        {
+            var ttt_Window = new TicTacToe.ttt_Window();
+            ttt_Window.Show();
+        }
+   } 
 }

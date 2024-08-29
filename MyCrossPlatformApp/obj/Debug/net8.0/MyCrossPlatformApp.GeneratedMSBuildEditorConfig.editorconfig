@@ -30,3 +30,6 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/Rock\,Paper\,Scissors/RPSWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/TicTacToe/TicTacToe.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

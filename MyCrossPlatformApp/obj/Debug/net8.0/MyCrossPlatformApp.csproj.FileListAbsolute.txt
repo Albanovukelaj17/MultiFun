@@ -71,3 +71,6 @@
 /Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/obj/Debug/net8.0/MyCrossP.01AB8723.Up2Date
 /Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/obj/Debug/net8.0/MyCrossPlatformApp.genruntimeconfig.cache
 /Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/obj/Debug/net8.0/ref/MyCrossPlatformApp.dll
+/Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/obj/Debug/net8.0/MyCrossPlatformApp.dll
+/Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/obj/Debug/net8.0/refint/MyCrossPlatformApp.dll
+/Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/obj/Debug/net8.0/MyCrossPlatformApp.pdb
