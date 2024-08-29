@@ -1,4 +1,6 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
+
 
 namespace TicTacToe
 {
@@ -8,7 +10,7 @@ namespace TicTacToe
         {
             InitializeComponent();
         }
-        private void OnPaperClick(object sender, RoutedEventArgs e)
+        private void OnCellClick(object sender, RoutedEventArgs e)
         {
             
         } 
