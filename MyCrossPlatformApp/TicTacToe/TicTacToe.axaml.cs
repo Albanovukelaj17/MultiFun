@@ -18,9 +18,12 @@ namespace TicTacToe
         private void OnCellClick(object sender, RoutedEventArgs e)
         {  
             var button = sender as Button;
+
+            // Variablen row und col hier definieren
             int row = Grid.GetRow(button);
             int col = Grid.GetColumn(button);
-            
+
+            // Überprüfen, ob das Feld leer ist
             if (board[row, col] == null)
             {
                 string currentPlayer;
@@ -39,14 +42,18 @@ namespace TicTacToe
 
                 _round_number++;
 
-                
                 if (CheckWin(currentPlayer))
                 {
-                    Win_table.Text = $"Player {currentPlayer} wins!";
-                    
+                    StatusTextBlock.Text = $"Player {currentPlayer} wins!";
                 }
             }
         }
+
+        private void OnResetGameClick(object sender, RoutedEventArgs e)
+        {
+            ResetGame();  
+        }
+
         private bool CheckTie()
         {
             foreach (var cell in board)
@@ -86,6 +93,29 @@ namespace TicTacToe
         
             return false;
         }
+        private void ResetGame()
+        {
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    board[row, col] = null; 
+                }
+            }
+
+            foreach (var control in this.Find<Grid>("MainGrid").Children)
+            {
+                if (control is Button button)
+                {
+                    button.Content = null; 
+                }
+            }
+
+            _round_number = 0;
+            StatusTextBlock.Text = string.Empty; 
+        }
+
+
 
     }
 }
