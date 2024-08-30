@@ -8,6 +8,7 @@ This cross-platform application, built using C# and Avalonia, is designed to pro
 
 - **Calculator**: A basic calculator designed for quick arithmetic operations. The interface is straightforward and user-friendly, ensuring that anyone can use it without difficulty.
 - **Rock-Paper-Scissors**: A classic Rock-Paper-Scissors game where the player competes against the CPU. The game tracks the user's wins and losses, making it an enjoyable challenge to beat the computer.
+- **Tic-Tac-Toe (1 vs 1)**: A traditional Tic-Tac-Toe game allowing two players to compete against each other. Players take turns marking a 3x3 grid, and the first to align three of their marks horizontally, vertically, or diagonally wins.
 
 ### Features
 - **Main Menu**: A simple interface that allows users to select between different options. Currently, the choices are "Calculator" and "Rock, Paper, Scissors", with more to be added in the future.
@@ -19,6 +20,11 @@ This cross-platform application, built using C# and Avalonia, is designed to pro
 - **Rock-Paper-Scissors**:
   - Play against the CPU with the option to choose Rock, Paper, or Scissors.
   - The game determines the winner and displays the result immediately, along with a running tally of wins and losses.
+ 
+- **Tic-Tac-Toe (1 vs 1)**:
+  - Two players can compete against each other in a classic Tic-Tac-Toe game.
+  - Players take turns marking the grid, and the game immediately displays the winner or a tie if applicable.( soon)
+  - The game is reset after each round, allowing continuous play.( soon)
 
 ### Future Development
 The application is designed with scalability in mind, allowing for easy addition of new mini-games and utilities. Future updates may include games like Tic-Tac-Toe, a memory game, or more complex utilities.
