@@ -2,34 +2,39 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System.Threading.Tasks;
 using Avalonia.Threading;
+using System; 
 
 namespace TicTacToe
 {
     public partial class ttt_Window : Window
     {
         private int _round_number = 0;
-        private int _player_x = 1;
-        private int _player_o = 0;
         private string[,] board = new string[3, 3];
-        private bool gameWon = false;  // Statusvariable, ob das Spiel gewonnen wurde
-        
+        private bool gameWon = false;
+        private GameStats gameStats = new GameStats();
+
         public ttt_Window()
         {
             InitializeComponent();
+            gameStats.Load(); // load saved stats
+            gameStats.Display(); 
+            //if minmax  always draw,if random dumm , cpu AI ?
         }
 
         private void OnCellClick(object sender, RoutedEventArgs e)
         {  
-            if (gameWon) return;  // Verhindert weitere Züge nach einem Sieg
+            if (gameWon) return;
 
             var button = sender as Button;
+            if (button == null) return;
+
             int row = Grid.GetRow(button);
             int col = Grid.GetColumn(button);
 
             if (board[row, col] == null)
             {
                 string currentPlayer;
-                if (_round_number % 2 == _player_x)
+                if (_round_number % 2 == 0)
                 {
                     currentPlayer = "X";
                     board[row, col] = "X";
@@ -47,15 +52,28 @@ namespace TicTacToe
                 if (CheckWin(currentPlayer))
                 {
                     StatusTextBlock.Text = $"Player {currentPlayer} wins!";
-                    gameWon = true;  // Markiere das Spiel als gewonnen
-                    Task.Delay(2000).ContinueWith(_ => Dispatcher.UIThread.InvokeAsync(() => ResetGame())); //no restart,but no click game
-                }
-            }
-        }
+                    gameWon = true;
 
-        private void OnResetGameClick(object sender, RoutedEventArgs e)
-        {
-            ResetGame();  
+                    if (currentPlayer == "X")
+                    {
+                        gameStats.Wins++;
+                    }
+                    else
+                    {
+                        gameStats.Losses++;
+                    }
+
+                    Task.Delay(2000).ContinueWith(_ => Dispatcher.UIThread.InvokeAsync(() => ResetGame()));
+                }
+                else if (CheckTie())
+                {
+                    StatusTextBlock.Text = "It's a tie!";
+                    gameStats.Ties++;
+                    Task.Delay(2000).ContinueWith(_ => Dispatcher.UIThread.InvokeAsync(() => ResetGame()));
+                }
+
+                gameStats.Save();  // save game , so that new game same stats, if not  0 0 0
+            }
         }
 
         private bool CheckTie()
@@ -73,59 +91,78 @@ namespace TicTacToe
         private bool CheckWin(string player)
         {
             // Horizontale Checks
-            if ((board[0, 0] == player && board[0, 1] == player && board[0, 2] == player) ||  // Erste Reihe
-                (board[1, 0] == player && board[1, 1] == player && board[1, 2] == player) ||  // Zweite Reihe
-                (board[2, 0] == player && board[2, 1] == player && board[2, 2] == player))    // Dritte Reihe
+            if ((board[0, 0] == player && board[0, 1] == player && board[0, 2] == player) ||
+                (board[1, 0] == player && board[1, 1] == player && board[1, 2] == player) ||
+                (board[2, 0] == player && board[2, 1] == player && board[2, 2] == player))
             {
                 return true;
             }
         
             // Vertikale Checks
-            if ((board[0, 0] == player && board[1, 0] == player && board[2, 0] == player) ||  // Erste Spalte
-                (board[0, 1] == player && board[1, 1] == player && board[2, 1] == player) ||  // Zweite Spalte
-                (board[0, 2] == player && board[1, 2] == player && board[2, 2] == player))    // Dritte Spalte
+            if ((board[0, 0] == player && board[1, 0] == player && board[2, 0] == player) ||
+                (board[0, 1] == player && board[1, 1] == player && board[2, 1] == player) ||
+                (board[0, 2] == player && board[1, 2] == player && board[2, 2] == player))
             {
                 return true;
             }
         
             // Diagonale Checks
-            if ((board[0, 0] == player && board[1, 1] == player && board[2, 2] == player) ||  // Hauptdiagonale
-                (board[0, 2] == player && board[1, 1] == player && board[2, 0] == player))    // Nebendiagonale
+            if ((board[0, 0] == player && board[1, 1] == player && board[2, 2] == player) ||
+                (board[0, 2] == player && board[1, 1] == player && board[2, 0] == player))
             {
                 return true;
             }
         
             return false;
         }
+        private void OnResetGameClick(object sender, RoutedEventArgs e)
+        {
+            ResetGame();  
+        }
+
+
+        private void UpdateGameStatsDisplay()
+        {
+            WinsTextBlock.Text = $"Wins: {gameStats.Wins}";
+            LossesTextBlock.Text = $"Losses: {gameStats.Losses}";
+            TiesTextBlock.Text = $"Ties: {gameStats.Ties}";
+        }
+
 
         private void ResetGame()
         {
+           
+
             for (int row = 0; row < 3; row++)
             {
                 for (int col = 0; col < 3; col++)
                 {
-                    board[row, col] = null; 
+                    board[row, col] = null;
                 }
             }
 
             var grid = this.FindControl<Grid>("MainGrid");
-            if (grid != null)  // Sicherheitsprüfung
+            if (grid != null)
             {
                 foreach (var control in grid.Children)
                 {
                     if (control is Button button)
                     {
-                        button.Content = null; 
+                        button.Content = null;
                     }
                 }
             }
-            
+
             _round_number = 0;
             gameWon = false;
-            if (StatusTextBlock != null)  // Sicherheitsprüfung
+
+            if (StatusTextBlock != null)
             {
                 StatusTextBlock.Text = string.Empty;
             }
+
+            UpdateGameStatsDisplay();  
         }
+
     }
 }

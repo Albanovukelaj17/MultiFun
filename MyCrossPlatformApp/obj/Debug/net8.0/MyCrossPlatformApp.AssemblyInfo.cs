@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyCrossPlatformApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+456e7f2fe7af8b1628b14c1aca94c27ae47f5618")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3692ad7f5527c5896dbb210708945d0979ac2b2c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyCrossPlatformApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyCrossPlatformApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

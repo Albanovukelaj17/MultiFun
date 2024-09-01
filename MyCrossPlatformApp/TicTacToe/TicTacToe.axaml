@@ -1,13 +1,15 @@
 <Window xmlns="https://github.com/avaloniaui"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 x:Class="TicTacToe.ttt_Window"
-Title="Tic Tac Toe" Width="300" Height="400">
+Title="Tic Tac Toe" Width="300" Height="500">
     <Grid x:Name="MainGrid">
     <Grid.RowDefinitions>
     <RowDefinition Height="*" />
     <RowDefinition Height="*" />
     <RowDefinition Height="*" />
     <RowDefinition Height="*" />
+    <RowDefinition Height="*" />
+
     
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
@@ -29,7 +31,11 @@ Title="Tic Tac Toe" Width="300" Height="400">
     <Button Grid.Row="2" Grid.Column="2" Name="Button22" Click="OnCellClick" Width = "100" Height = "100" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     <TextBlock Grid.Row="3" Grid.Column="1" x:Name="StatusTextBlock" Text="" Width="200" Height="100" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
     <Button Grid.Row="3" Grid.Column="2" Content="Reset Game" Click="OnResetGameClick" Width = "100" Height = "40"  FontSize="10" VerticalContentAlignment="Center"/>
-   </Grid>
+    <TextBlock Grid.Row="4" Grid.Column="0" x:Name="WinsTextBlock"  Text="Wins: 0" Width="100" Height="50"  FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" />
+    <TextBlock Grid.Row="4" Grid.Column="1" x:Name="LossesTextBlock" Text="Losses: 0" Width="100" Height="50" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
+    <TextBlock Grid.Row="4" Grid.Column="2" x:Name="TiesTextBlock" Text="Ties: 0" Width="100" Height="50" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" />  
+
+ </Grid>
 
 
 
