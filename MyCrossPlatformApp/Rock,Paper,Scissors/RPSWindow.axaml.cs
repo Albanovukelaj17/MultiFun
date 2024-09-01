@@ -49,6 +49,7 @@ namespace MyCrossPlatformApp.RockPaperScissors
             {
                 result = "You win!";
                 _wins++;
+               
             }
             else
             {

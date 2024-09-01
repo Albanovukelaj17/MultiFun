@@ -1,5 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using System.Threading.Tasks;
+using Avalonia.Threading;
 
 namespace TicTacToe
 {
@@ -9,6 +11,7 @@ namespace TicTacToe
         private int _player_x = 1;
         private int _player_o = 0;
         private string[,] board = new string[3, 3];
+        private bool gameWon = false;  // Statusvariable, ob das Spiel gewonnen wurde
         
         public ttt_Window()
         {
@@ -17,13 +20,12 @@ namespace TicTacToe
 
         private void OnCellClick(object sender, RoutedEventArgs e)
         {  
-            var button = sender as Button;
+            if (gameWon) return;  // Verhindert weitere Züge nach einem Sieg
 
-            
+            var button = sender as Button;
             int row = Grid.GetRow(button);
             int col = Grid.GetColumn(button);
 
-            
             if (board[row, col] == null)
             {
                 string currentPlayer;
@@ -45,6 +47,8 @@ namespace TicTacToe
                 if (CheckWin(currentPlayer))
                 {
                     StatusTextBlock.Text = $"Player {currentPlayer} wins!";
+                    gameWon = true;  // Markiere das Spiel als gewonnen
+                    Task.Delay(2000).ContinueWith(_ => Dispatcher.UIThread.InvokeAsync(() => ResetGame())); //no restart,but no click game
                 }
             }
         }
@@ -93,6 +97,7 @@ namespace TicTacToe
         
             return false;
         }
+
         private void ResetGame()
         {
             for (int row = 0; row < 3; row++)
@@ -103,19 +108,24 @@ namespace TicTacToe
                 }
             }
 
-            foreach (var control in this.Find<Grid>("MainGrid").Children)
+            var grid = this.FindControl<Grid>("MainGrid");
+            if (grid != null)  // Sicherheitsprüfung
             {
-                if (control is Button button)
+                foreach (var control in grid.Children)
                 {
-                    button.Content = null; 
+                    if (control is Button button)
+                    {
+                        button.Content = null; 
+                    }
                 }
             }
-
+            
             _round_number = 0;
-            StatusTextBlock.Text = string.Empty; 
+            gameWon = false;
+            if (StatusTextBlock != null)  // Sicherheitsprüfung
+            {
+                StatusTextBlock.Text = string.Empty;
+            }
         }
-
-
-
     }
 }
