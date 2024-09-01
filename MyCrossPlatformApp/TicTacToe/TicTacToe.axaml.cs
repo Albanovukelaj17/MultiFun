@@ -19,11 +19,11 @@ namespace TicTacToe
         {  
             var button = sender as Button;
 
-            // Variablen row und col hier definieren
+            
             int row = Grid.GetRow(button);
             int col = Grid.GetColumn(button);
 
-            // Überprüfen, ob das Feld leer ist
+            
             if (board[row, col] == null)
             {
                 string currentPlayer;
