@@ -2,7 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="MyCrossPlatformApp.MainWindow"
         Title="Main Menu"
-        Width="300" Height="150"
+        Width="300" Height="200"
         Background="#333333"> 
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
