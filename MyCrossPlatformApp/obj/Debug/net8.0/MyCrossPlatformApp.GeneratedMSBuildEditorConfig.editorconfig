@@ -25,6 +25,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/Calculator/Window.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/hangman/HangMan.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/albanovukelaj/Desktop/Motherfucker/MultiFun/MyCrossPlatformApp/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

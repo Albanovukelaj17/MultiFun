@@ -27,5 +27,11 @@ namespace MyCrossPlatformApp
             var ttt_Window = new TicTacToe.ttt_Window();
             ttt_Window.Show();
         }
+        
+        private void HangManGame_Click(object sender, RoutedEventArgs e)
+        {
+            var hangman_Window = new HangMan.hangman_Window();
+            hangman_Window.Show();
+        }
    } 
 }
